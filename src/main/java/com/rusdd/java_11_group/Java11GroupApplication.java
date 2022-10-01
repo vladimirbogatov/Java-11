@@ -1,4 +1,4 @@
-package com.rusdd.Java_11_group;
+package com.rusdd.java_11_group;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,6 +1,6 @@
-package com.rusdd.Java_11_group.controller;
+package com.rusdd.java_11_group.controller;
 
-import com.rusdd.Java_11_group.cache.ReddisInMemoryCache;
+import com.rusdd.java_11_group.cache.ReddisInMemoryCache;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

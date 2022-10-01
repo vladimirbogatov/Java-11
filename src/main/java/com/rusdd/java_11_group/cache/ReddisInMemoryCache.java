@@ -1,4 +1,4 @@
-package com.rusdd.Java_11_group.cache;
+package com.rusdd.java_11_group.cache;
 
 import org.springframework.stereotype.Component;
 

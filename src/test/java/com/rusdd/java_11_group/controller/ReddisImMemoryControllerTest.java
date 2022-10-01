@@ -1,7 +1,7 @@
-package com.rusdd.Java_11_group.controller;
+package com.rusdd.java_11_group.controller;
 
-import com.rusdd.Java_11_group.AbstractControllerTest;
-import com.rusdd.Java_11_group.cache.ReddisInMemoryCache;
+import com.rusdd.java_11_group.AbstractControllerTest;
+import com.rusdd.java_11_group.cache.ReddisInMemoryCache;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
