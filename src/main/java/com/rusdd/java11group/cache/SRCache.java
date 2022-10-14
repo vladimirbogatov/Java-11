@@ -1,4 +1,4 @@
-package com.rusdd.java_11_group.cache;
+package com.rusdd.java11group.cache;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

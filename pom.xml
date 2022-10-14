@@ -10,10 +10,10 @@
 	</parent>
 
 	<groupId>com.rusdd</groupId>
-	<artifactId>Java_11_group</artifactId>
+	<artifactId>java-11-group</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>java_11_group</name>
-	<description>Self_tests</description>
+	<description>Implements in memory cache Reddis</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -44,6 +44,13 @@
 			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.14.0-rc2</version>
+		</dependency>
+
 		<!--Swagger-->
 		<dependency>
 			<groupId>org.springdoc</groupId>

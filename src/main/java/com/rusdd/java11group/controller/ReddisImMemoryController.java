@@ -1,6 +1,7 @@
-package com.rusdd.java_11_group.controller;
+package com.rusdd.java11group.controller;
 
-import com.rusdd.java_11_group.cache.ReddisInMemoryCache;
+import com.rusdd.java11group.cache.ReddisInMemoryCache;
+import com.rusdd.java11group.service.ReddisInMemoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,12 @@ import java.util.List;
 @Slf4j
 public class ReddisImMemoryController {
     protected static final String REST_URL = "/api/cache";
+
     @Qualifier("SRCache")
     @Autowired
     private ReddisInMemoryCache cache;
+    @Autowired
+    private ReddisInMemoryService service;
 
     @GetMapping("/{key}")
     @Operation(summary = "get value by key. Return value")
@@ -36,11 +40,11 @@ public class ReddisImMemoryController {
     }
 
     @DeleteMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Removes the specified keys. A key is ignored if it does not exist")
     public int del(@RequestBody List<String> keys) {
         log.info("Removes the keys {}", keys);
-        String[] arrayKeys = new String[keys.size()];
-        return cache.del(keys.toArray(arrayKeys));
+        return service.del(keys);
     }
 
     @GetMapping("/keys")

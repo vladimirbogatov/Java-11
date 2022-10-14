@@ -1,11 +1,15 @@
-package com.rusdd.java_11_group.controller;
+package com.rusdd.java11group.controller;
 
-import com.rusdd.java_11_group.AbstractControllerTest;
-import com.rusdd.java_11_group.cache.ReddisInMemoryCache;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rusdd.java11group.AbstractControllerTest;
+import com.rusdd.java11group.cache.ReddisInMemoryCache;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import java.util.Arrays;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -17,6 +21,8 @@ class ReddisImMemoryControllerTest extends AbstractControllerTest {
     @Qualifier("SRCache")
     @Autowired
     ReddisInMemoryCache cache;
+    @Autowired
+    private ObjectMapper objectMapper;
 
     @Test
     void get() throws Exception {
@@ -32,5 +38,16 @@ class ReddisImMemoryControllerTest extends AbstractControllerTest {
                 .param("value", "string1"))
                 .andDo(print())
                 .andExpect(status().isCreated());
+    }
+
+    @Test
+    void del() throws Exception {
+        cache.set("key_del", "value_del");
+        perform(MockMvcRequestBuilders.delete(REST_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(Arrays.asList("key_del"))))
+                .andExpect(status().isNoContent())
+                .andDo(print());
+
     }
 }
